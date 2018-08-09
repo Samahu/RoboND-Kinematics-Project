@@ -50,6 +50,16 @@ Links | alpha(i-1) | a(i-1) | d(i-1) | theta(i)
 5->6 | 0 | 0 | 0 | 0
 6->EE | 0 | 0 | 0 | 0
 
+s = {
+		a0: 0,		alpha0: 0.0, 		d1: 0.75,
+		a1: 0.35,	alpha1: -0.5 * pi,	d2: 0.0, q2: q2 - pi
+		a2: 1.25,	alpha2: 0.0,		d3: 0.0,
+		a3: -0.054,	alpha3: -0.5 * pi,	d4: 1.5,
+		a4: 0.0,	alpha4: +0.5 * pi,	d5: 0.0,
+		a5: 0.0,	alpha5: -0.5 * pi,	d6: 0.0,
+		a6: 0.0,	alpha6: 0.0,		d7: 0.193, 	q7: 0
+	}
+
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
