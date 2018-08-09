@@ -72,35 +72,7 @@ def handle_calculate_IK(req):
 		[sin(q3)*sin(alpha2),	cos(q3)*sin(alpha2),	 cos(alpha2),	 cos(alpha2)*d3],
 		[                  0, 			  0,               0, 		      1]])
 	T2_3.subs(s)
-	"""
-	T3_4 = Matrix([
-		[            cos(q4),	           -sin(q4), 		   0, 		     a3],
-		[sin(q4)*cos(alpha3),	cos(q4)*cos(alpha3),	-sin(alpha3),	-sin(alpha3)*d4],
-		[sin(q4)*sin(alpha3),	cos(q4)*sin(alpha3),	 cos(alpha3),	 cos(alpha3)*d4],
-		[                  0, 			  0,               0, 		      1]])
-	T3_4.subs(s)
 
-	T4_5 = Matrix([
-		[            cos(q5),	           -sin(q5), 		   0, 		     a4],
-		[sin(q5)*cos(alpha4),	cos(q5)*cos(alpha4),	-sin(alpha4),	-sin(alpha4)*d5],
-		[sin(q5)*sin(alpha4),	cos(q5)*sin(alpha4),	 cos(alpha4),	 cos(alpha4)*d5],
-		[                  0, 			  0,               0, 		      1]])
-	T4_5.subs(s)
-
-	T5_6 = Matrix([
-		[            cos(q6),	           -sin(q6), 		   0, 		     a5],
-		[sin(q6)*cos(alpha5),	cos(q6)*cos(alpha5),	-sin(alpha5),	-sin(alpha5)*d6],
-		[sin(q6)*sin(alpha5),	cos(q6)*sin(alpha5),	 cos(alpha5),	 cos(alpha5)*d6],
-		[                  0, 			  0,               0, 		      1]])
-	T5_6.subs(s)
-
-	T6_G = Matrix([
-		[            cos(q7),	           -sin(q7), 		   0, 		     a6],
-		[sin(q7)*cos(alpha6),	cos(q7)*cos(alpha6),	-sin(alpha6),	-sin(alpha6)*d7],
-		[sin(q7)*sin(alpha6),	cos(q7)*sin(alpha6),	 cos(alpha6),	 cos(alpha6)*d7],
-		[                  0, 			  0,               0, 		      1]])
-	T6_G.subs(s)
-	"""
 	print ("102!")
 
 	#
@@ -109,12 +81,6 @@ def handle_calculate_IK(req):
 	T0_2 = simplify(T0_1 * T1_2)
 	T0_3 = simplify(T0_2 * T2_3)
 
-	"""
-	T0_4 = simplify(T0_3 * T3_4)
-	T0_5 = simplify(T0_4 * T4_5)
-	T0_6 = simplify(T0_5 * T5_6)
-	T0_G = simplify(T0_6 * T6_G)
-	"""
 	print ("116!")
 	#
 	# Extract rotation matrices from the transformation matrices
@@ -219,8 +185,8 @@ def handle_calculate_IK(req):
 	    #theta2 = theta2.evalf()
 	    #theta3 = theta3.evalf()
 	    print("220")
-	    print("theta2 = " + str(theta2))
-	    s.update({q1: theta1, q2: theta2 - 0.5 * pi, q3: theta3})	# append the new values
+
+	    s.update({q1: theta1, q2: theta2 - 0.5 * pi.evalf(), q3: theta3})	# append the new values
 	    print(s)
 	    R0_3 = T0_3.evalf(subs=s)
 	    print("222")
@@ -259,7 +225,7 @@ def handle_calculate_IK(req):
 	    joint_trajectory_point.positions = [theta1, theta2, theta3, theta4, theta5, theta6]
 	    joint_trajectory_list.append(joint_trajectory_point)
 
-	    print("Service was invoked!")
+	    print("Service was invoked! Iteration No. " + str(x))
 
         rospy.loginfo("length of Joint Trajectory List: %s" % len(joint_trajectory_list))
         return CalculateIKResponse(joint_trajectory_list)
