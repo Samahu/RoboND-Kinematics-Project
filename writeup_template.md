@@ -42,7 +42,7 @@ The following image shows the model composition and links relationships taken us
 ![alt text][forward-kinematics-rviz]
 
 The following image matches the link lengths with their values taken from the urdf file.
-[forward-kinematics-urdf]
+![alt text][forward-kinematics-urdf]
 
 Based on these values and the joints relationship and their types we can define the origin and the axes for each joint in a way that minimizes the number of DH parameters and values as much as possible, as shown in the following image:
 ![alt text][forward-kinematics]
