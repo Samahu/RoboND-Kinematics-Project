@@ -98,8 +98,26 @@ def handle_calculate_IK(req):
 
 	print("130")
 	R_corr = R_int_z * R_int_y
-	#
-        ###
+
+	y, p, r = symbols("y p r")
+	R_ext_z = Matrix([
+		[	cos(y),	  -sin(y), 	0],
+		[	sin(y),	   cos(y),	0],
+		[	     0,         0,	1]])
+
+	R_ext_y = Matrix([
+		[     cos(p),		0, 	sin(p)],
+		[	   0,		1,	     0],
+		[    -sin(p),		0, 	cos(p)]])
+
+	R_ext_x = Matrix([
+		[       1, 		0, 	      0],
+		[	0,	   cos(r),	-sin(r)],
+		[	0,	   sin(r),	cos(r)]])
+
+	R_ext = R_ext_z * R_ext_y * R_ext_x
+
+	R0_6_sym = simplify(R_ext * R_corr)
 
 	print ("Matrices constructed!")
 
@@ -124,25 +142,10 @@ def handle_calculate_IK(req):
 	    # Compensate for rotation discrepancy between DH parameters and Gazebo
 	    #
 	    #
-	    print("160")
-	    R_ext_z = Matrix([
-		[	cos(yaw),	-sin(yaw), 	0],
-		[	sin(yaw),	 cos(yaw),	0],
-		[	       0,	        0,	1]])
+	    print("144")
 
-	    R_ext_y = Matrix([
-		[     cos(pitch),	0, sin(pitch)],
-		[	       0,	1,	    0],
-		[    -sin(pitch),	0, cos(pitch)]])
-
-	    R_ext_x = Matrix([
-		[       1, 		0, 		 0],
-		[	0,	cos(roll),	-sin(roll)],
-		[	0,	sin(roll),	 cos(roll)]])
-	    print("175")
-
-	    R_ext = R_ext_z * R_ext_y * R_ext_x
-	    R0_6 = R_ext * R_corr
+	    R0_6 = R0_6_sym.evalf(subs={y: yaw, p: pitch, r: roll})
+	    
 
 	    # Calculate joint angles using Geometric IK method
 	    #
