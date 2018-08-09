@@ -20,6 +20,7 @@
 [image1]: ./misc_images/misc1.png
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
+[forward-kinematics]: ./misc_images/forwad-kinematics.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -37,6 +38,8 @@ You're reading it!
 Here is an example of how to include an image in your writeup.
 
 ![alt text][image1]
+
+![alt text][forward-kinematics]
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
