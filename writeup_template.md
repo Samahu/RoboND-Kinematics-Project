@@ -17,6 +17,8 @@
 
 [//]: # (Image References)
 
+[forward-kinematics-rviz] ./misc_images/forward-kinematics-rviz.png
+[forward-kinematics-urdf] ./misc_images/forward-kinematics-urdf.png
 [image1]: ./misc_images/misc1.png
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
@@ -30,20 +32,26 @@
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  
 
-You're reading it!
+In progress
 
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-Here is an example of how to include an image in your writeup.
 
-![alt text][image1]
+The following image shows the model composition and links relationships taken using the rviz software
+![alt text][forward-kinematics-rviz]
 
+The following image matches the link lengths with their values taken from the urdf file.
+[forward-kinematics-urdf]
+
+Based on these values and the joints relationship and their types we can define the origin and the axes for each joint in a way that minimizes the number of DH parameters and values as much as possible, as shown in the following image:
 ![alt text][forward-kinematics]
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
-Note: I changed the table header from d(i-1) to d(i)
+The following table capture the DH parameters based on the previous images:
+
+_Note_: I changed the table header from d(i-1) to d(i)
 
 Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 --- | --- | --- | --- | ---
