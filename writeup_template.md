@@ -17,11 +17,11 @@
 
 [//]: # (Image References)
 
-[forward-kinematics-rviz] ./misc_images/forward-kinematics-rviz.png
-[forward-kinematics-urdf] ./misc_images/forward-kinematics-urdf.png
 [image1]: ./misc_images/misc1.png
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
+[forward-kinematics-rviz]: ./misc_images/forward-kinematics-rviz.png
+[forward-kinematics-urdf]: ./misc_images/forward-kinematics-urdf.png
 [forward-kinematics]: ./misc_images/forward-kinematics.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
