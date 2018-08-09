@@ -23,6 +23,8 @@
 [forward-kinematics-rviz]: ./misc_images/forward-kinematics-rviz.png
 [forward-kinematics-urdf]: ./misc_images/forward-kinematics-urdf.png
 [forward-kinematics]: ./misc_images/forward-kinematics.jpg
+[inverse-kinematics-theta1]: ./misc_images/inverse-kinematics-theta1.jpg
+[inverse-kinematics-theta2-theta3]: ./misc_images/inverse-kinematics-theta2-theta3.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -66,9 +68,13 @@ Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-And here's where you can draw out and show your math for the derivation of your theta angles. 
+The following figures shows the how to theta1, theta2, theta3 were derived:
 
-![alt text][image2]
+TOP VIEW
+![alt text][inverse-kinematics-theta1]
+
+SIDE VIEW
+![alt text][inverse-kinematics-theta2-theta3]
 
 ### Project Implementation
 
